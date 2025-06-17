@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>關愛 - Professional College Counseling</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0.5in;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            font-size: 14px;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .flyer-container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            padding-bottom: 30px;
+            border-bottom: 3px solid #3498db;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: -20px -20px 40px -20px;
+        }
+        
+        .quote {
+            font-size: 16px;
+            font-style: italic;
+            color: white;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(255,255,255,0.15);
+            border-left: 4px solid #74b9ff;
+            border-radius: 8px;
+        }
+        
+        .name-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .subtitle {
+            font-size: 20px;
+            color: #ddd;
+            font-weight: 500;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+            page-break-inside: avoid;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .credentials {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+        
+        .credentials p {
+            margin-bottom: 18px;
+            line-height: 1.7;
+            color: white;
+        }
+        
+        .credentials-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .credentials-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            position: relative;
+            padding-left: 25px;
+            color: white;
+        }
+        
+        .credentials-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .credentials-list li::before {
+            content: '★';
+            position: absolute;
+            left: 0;
+            color: #fdcb6e;
+            font-size: 16px;
+        }
+        
+        .story-section {
+            background: linear-gradient(135deg, #fd79a8 0%, #fdcb6e 100%);
+            color: white;
+            padding: 25px;
+            border-left: 6px solid #e84393;
+            margin: 25px 0;
+            border-radius: 12px;
+        }
+        
+        .story-section p {
+            margin-bottom: 15px;
+            line-height: 1.7;
+            color: white;
+        }
+        
+        .highlight-text {
+            color: #fff;
+            font-weight: 700;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .service-card {
+            background: white;
+            border: none;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .service-card:nth-child(1) {
+            border-top: 4px solid #74b9ff;
+        }
+        
+        .service-card:nth-child(2) {
+            border-top: 4px solid #fd79a8;
+        }
+        
+        .service-card:nth-child(3) {
+            border-top: 4px solid #fdcb6e;
+        }
+        
+        .service-card:nth-child(4) {
+            border-top: 4px solid #00b894;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .service-card h4 {
+            color: #2c3e50;
+            font-size: 16px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        
+        .service-card p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #5a6c7d;
+        }
+        
+        .pricing-section {
+            background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+        }
+        
+        .pricing-section .section-title {
+            color: white;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .price-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 10px;
+            padding: 20px;
+            border: none;
+            text-align: center;
+            transition: transform 0.2s ease;
+        }
+        
+        .price-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .price-card h4 {
+            color: #2c3e50;
+            font-size: 16px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .price-card .price {
+            color: #e74c3c;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .price-card p {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #5a6c7d;
+        }
+        
+        .one-off-services {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .one-off-services h4 {
+            color: white;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+        
+        .one-off-services ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .one-off-services li {
+            padding: 8px 0;
+            padding-left: 20px;
+            position: relative;
+            color: white;
+        }
+        
+        .one-off-services li::before {
+            content: '➤';
+            position: absolute;
+            left: 0;
+            color: #fdcb6e;
+            font-weight: bold;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 25px 0;
+        }
+        
+        .highlight-box h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: white;
+        }
+        
+        .community-impact {
+            background: linear-gradient(135deg, #fdcb6e 0%, #e17055 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 25px 0;
+        }
+        
+        .community-impact .section-title {
+            color: white;
+            border: none;
+            margin-bottom: 15px;
+        }
+        
+        .fit-section {
+            background: linear-gradient(135deg, #55a3ff 0%, #003d82 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+        }
+        
+        .fit-section p {
+            color: white;
+        }
+        
+        .fit-section ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+        
+        .fit-section li {
+            padding: 6px 0;
+            padding-left: 20px;
+            position: relative;
+            color: white;
+        }
+        
+        .fit-section li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #fdcb6e;
+            font-weight: bold;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .is-card, .not-card {
+            padding: 20px;
+            border-radius: 12px;
+        }
+        
+        .is-card {
+            background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+            color: white;
+            border-left: 6px solid #55efc4;
+        }
+        
+        .not-card {
+            background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);
+            color: white;
+            border-left: 6px solid #ff7675;
+        }
+        
+        .is-card h4 {
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .not-card h4 {
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .is-card ul, .not-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .is-card li, .not-card li {
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+            font-size: 14px;
+            color: white;
+        }
+        
+        .is-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #fdcb6e;
+            font-weight: bold;
+        }
+        
+        .not-card li::before {
+            content: '✗';
+            position: absolute;
+            left: 0;
+            color: #ffeaa7;
+            font-weight: bold;
+        }
+        
+        .contact-section {
+            background: linear-gradient(135deg, #2d3436 0%, #636e72 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+            margin-top: 30px;
+            border-radius: 12px;
+        }
+        
+        .contact-info {
+            margin: 20px 0;
+        }
+        
+        .contact-item {
+            margin: 10px 0;
+            font-size: 15px;
+        }
+        
+        .final-note {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+            font-style: italic;
+        }
+        
+        .humor-note {
+            font-style: italic;
+            color: #7f8c8d;
+            font-size: 13px;
+            margin-top: 10px;
+        }
+        
+        p {
+            margin-bottom: 16px;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+        
+        @media print {
+            body {
+                font-size: 12px;
+                background: white !important;
+            }
+            
+            .flyer-container {
+                padding: 20px;
+                box-shadow: none;
+            }
+            
+            .header {
+                background: #667eea !important;
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+            }
+            
+            .credentials,
+            .story-section,
+            .pricing-section,
+            .highlight-box,
+            .community-impact,
+            .fit-section,
+            .is-card,
+            .not-card,
+            .contact-section {
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .flyer-container {
+                padding: 20px;
+            }
+            
+            .services-grid,
+            .pricing-grid,
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="flyer-container">
+        <div class="header">
+            <div class="quote">
+                "我最大的希望是：當你的孩子申請season結束時，不管結果如何，他們會說'我很proud of who I've become in this process.' That's what real success looks like."
+            </div>
+            <div class="name-title">關愛</div>
+            <div class="subtitle">Professional College Counseling</div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">關於我</div>
+            <div class="credentials">
+                <p>我是關愛，UPenn學生，本科碩士還差0.5堂課就畢業。我同時也錄取了Harvard研究所，但現在想先暫停這些，來追咖啡廳夢，之後再回去完成學位。</p>
+                
+                <ul class="credentials-list">
+                    <li>3年college counseling實務經驗</li>
+                    <li>Professional essay editing和申請策略規劃</li>
+                    <li>Wharton TA - 教統計、金融跟營運管理</li>
+                    <li>Wharton Moneyball Program導師</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">我的故事</div>
+            <div class="story-section">
+                <p>但在成為counselor之前，我也是那個迷茫的高中生。我不知道未來想幹嘛，也不知道對什麼科目有興趣。我只知道我對什麼沒興趣，然後最後決定讀商，因為商業感覺最多機會跟可能的道路。</p>
+                
+                <p>到了大學，我以為成功就是做得越多越好 - 所以我同時修3個主修、讀碩士、做3份工作、參加4個社團。從外面看起來很impressive，但我每天胃痛、失眠、焦慮，最後完全burnout。</p>
+                
+                <p><strong>那時候我多希望有個counselor，不是要我做更多，而是陪我想清楚：什麼對我真的重要？我到底對什麼有興趣？</strong></p>
+                
+                <p class="highlight-text">現在，我想成為我高中時會付錢找的那種counselor。</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">服務定位</div>
+            <p>如果你的孩子已經有counselor，很好！我不是來compete的。我想提供的是complement：除了professional counselor以外，一位有professional skills但更能理解學生心理的advisor。</p>
+            <p class="humor-note">基本上就是professional 大姊姊（一開始就說我是大姊姊應該沒有家長願意付錢吧哈哈）</p>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">服務內容</div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h4>Essay Writing & Editing</h4>
+                    <p>幫助找到真實的story，保持authentic voice，多輪revision直到感到proud</p>
+                </div>
+                <div class="service-card">
+                    <h4>真實興趣探索</h4>
+                    <p>陪伴探索、失敗，建立面對失敗和探索壓力的能力</p>
+                </div>
+                <div class="service-card">
+                    <h4>Application Strategy</h4>
+                    <p>基於真正的興趣和fit，timeline規劃，realistic but ambitious選校</p>
+                </div>
+                <div class="service-card">
+                    <h4>Emotional Support</h4>
+                    <p>處理申請壓力，探索紓壓方式，maintain perspective（非therapy）</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">定價方案</div>
+            <div class="pricing-section">
+                <div class="pricing-grid">
+                    <div class="price-card">
+                        <h4>探索階段</h4>
+                        <div class="price">NT$45,000</div>
+                        <p>3個月<br>每週1.5小時sessions<br>Interest discovery導向</p>
+                    </div>
+                    <div class="price-card">
+                        <h4>全方位準備</h4>
+                        <div class="price">NT$120,000</div>
+                        <p>6個月<br>完整college prep +<br>personal development</p>
+                    </div>
+                    <div class="price-card">
+                        <h4>完整陪伴</h4>
+                        <div class="price">NT$180,000</div>
+                        <p>9個月<br>從興趣探索到<br>申請提交complete journey</p>
+                    </div>
+                </div>
+                
+                <div class="one-off-services">
+                    <h4>單次服務選項</h4>
+                    <ul>
+                        <li>Single consultation - NT$5,000/session</li>
+                        <li>Essay review & editing - NT$5,000/session</li>
+                        <li>Interview prep session - NT$5,000/session</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="highlight-box">
+                <h3>Program結業成果</h3>
+                <p>每個program結束時，學生會親自策劃並舉辦一場lighthouse活動，獲得真實的leadership experience和community impact。包含結業報告、final project和authentic work portfolio。</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="community-impact">
+                <div class="section-title" style="border: none; margin-bottom: 15px;">Community Impact Program</div>
+                <p>每當有家庭選擇我的services，就能讓我為真正有需要但經濟困難的學生提供免費或subsidized guidance。你的投資不只幫助自己的孩子，也為其他孩子創造機會。</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title">適合的學生</div>
+            <div class="fit-section">
+                <p><strong>如果你的孩子是10-11年級，而且：</strong></p>
+                <ul>
+                    <li>想要professional guidance但害怕intimidating的counselors</li>
+                    <li>需要有人聽他們真實的想法和concerns</li>
+                    <li>被各種expectations overwhelm但不知道怎麼表達</li>
+                    <li>有興趣但被告知"這個不實際"、"沒前途"</li>
+                    <li>根本不知道自己想要什麼，只知道不想要什麼</li>
+                    <li>已經有counselor但還需要emotional support和陪伴</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="comparison-grid">
+                <div class="is-card">
+                    <h4>我是什麼</h4>
+                    <ul>
+                        <li>有professional skills的大姊姊</li>
+                        <li>真正care wellbeing的mentor</li>
+                        <li>會告訴真話的advisor</li>
+                        <li>會celebrate成長的supporter</li>
+                    </ul>
+                </div>
+                <div class="not-card">
+                    <h4>我不是什麼</h4>
+                    <ul>
+                        <li>Magic solution - 不保證進任何學校</li>
+                        <li>Strict taskmaster - 不會像虎媽push</li>
+                        <li>純粹的朋友 - 有professional standards</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact-section">
+            <div class="section-title" style="color: white; border: none; margin-bottom: 15px;">聯絡方式</div>
+            <p>30分鐘免費諮詢，了解你的孩子和期望。沒有pressure，沒有sales pitch，就是兩個關心同一個孩子的人在對話。</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">📱 WhatsApp: [Your Number]</div>
+                <div class="contact-item">📧 Email: [Your Email]</div>
+                <div class="contact-item">💬 Line: [Your Line ID]</div>
+            </div>
+            
+            <div class="final-note">
+                <p><strong>今年只陪伴5-6位學生</strong></p>
+                <p>確保每個人都得到充分的attention和care</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
